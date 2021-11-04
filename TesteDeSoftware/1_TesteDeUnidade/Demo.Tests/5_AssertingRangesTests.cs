@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Xunit;
+﻿using Xunit;
 
 namespace Demo.Tests
 {
     public class AssertingRangesTests
     {
         [Theory]
+        [InlineData(500)]
         [InlineData(700)]
         [InlineData(1500)]
         [InlineData(2000)]

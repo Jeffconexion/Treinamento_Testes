@@ -35,6 +35,23 @@ namespace Demo.Tests
             Assert.DoesNotContain("Microservices", funcionario.Habilidades);
         }
 
+        [Fact]
+        public void Funcionario_Habilidades_PlenoDevePossuirHabilidades()
+        {
+            // Arrange & Act
+            var funcionario = FuncionarioFactory.Criar("Souza", 5000);
+
+            var habilidadesBasicas = new[]
+            {
+                "Lógica de Programação",
+                "OOP",
+                "Testes"
+            };
+
+            // Assert
+            Assert.Equal(habilidadesBasicas, funcionario.Habilidades);
+        }
+
 
         [Fact]
         public void Funcionario_Habilidades_SeniorDevePossuirTodasHabilidades()
