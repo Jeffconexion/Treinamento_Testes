@@ -18,13 +18,13 @@ namespace Demo.Tests
             var funcionario = new Funcionario("Eduardo", salario);
 
             // Assert
-            if (funcionario.NivelProfissional == NivelProfissional.Junior)
+            if (funcionario.NivelProfissional == EnumNivelProfissional.Junior)
                 Assert.InRange(funcionario.Salario, 500, 1999);
 
-            if (funcionario.NivelProfissional == NivelProfissional.Pleno)
+            if (funcionario.NivelProfissional == EnumNivelProfissional.Pleno)
                 Assert.InRange(funcionario.Salario, 2000, 7999);
 
-            if (funcionario.NivelProfissional == NivelProfissional.Senior)
+            if (funcionario.NivelProfissional == EnumNivelProfissional.Senior)
                 Assert.InRange(funcionario.Salario, 8000, double.MaxValue);
 
             Assert.NotInRange(funcionario.Salario, 0, 499);

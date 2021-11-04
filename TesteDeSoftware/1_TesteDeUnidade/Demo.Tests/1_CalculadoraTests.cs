@@ -53,5 +53,25 @@ namespace Demo.Tests
             //Assert
             Assert.Equal(total, reslutado);
         }
+
+        [Theory]
+        [InlineData(4, 2, 2)]
+        [InlineData(9, 3, 3)]
+        [InlineData(12, 4, 3)]
+        [InlineData(6, 2, 3)]
+        [InlineData(10, 2, 5)]
+        [InlineData(10, 10, 1)]
+        [InlineData(20, 4, 5)]
+        public void Calculadora_Dividir_RetornarValoresDivisaoCorretos(int v1, int v2, int resultadoEsperado)
+        {
+            //Arrange
+            var calculadora = new Calculadora();
+
+            //ACT
+            var resultado = calculadora.Dividir(v1, v2);
+
+            //Assert
+            Assert.Equal(resultadoEsperado, resultado);
+        }
     }
 }
