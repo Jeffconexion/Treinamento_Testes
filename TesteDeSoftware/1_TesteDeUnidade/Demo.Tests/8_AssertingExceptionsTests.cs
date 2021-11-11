@@ -5,7 +5,8 @@ namespace Demo.Tests
 {
     public class AssertingExceptionsTests
     {
-        [Fact]
+        [Fact(DisplayName = "Validar excessão de valor divdido por zero.")]
+        [Trait("Calculadora", "Soma, Divisão e Teorias")]
         public void Calculadora_Dividir_DeveRetornarErroDivisaoPorZero()
         {
             // Arrange
@@ -16,7 +17,8 @@ namespace Demo.Tests
         }
 
 
-        [Fact]
+        [Fact(DisplayName = "Validar excessão para salário inferior ao permitido.")]
+        [Trait("Funcionário", "Testando os nomes e Teorias.")]
         public void Funcionario_Salario_DeveRetornarErroSalarioInferiorPermitido()
         {
             // Arrange & Act & Assert

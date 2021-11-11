@@ -4,7 +4,8 @@ namespace Demo.Tests
 {
     public class AssertingRangesTests
     {
-        [Theory]
+        [Theory(DisplayName ="Verificar faixa salarial corresponde ao nível profissional.")]
+        [Trait("Funcionário", "Testando os nomes e Teorias.")]
         [InlineData(500)]
         [InlineData(700)]
         [InlineData(1500)]

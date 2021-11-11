@@ -4,7 +4,8 @@ namespace Demo.Tests
 {
     public class AssertingCollectionsTests
     {
-        [Fact]
+        [Fact(DisplayName = "Habilidades não devem ter valor nulo.")]
+        [Trait("Funcionário", "Testando os nomes e Teorias.")]
         public void Funcionario_Habilidades_NaoDevePossuirHabilidadesVazias()
         {
             // Arrange & Act
@@ -14,7 +15,8 @@ namespace Demo.Tests
             Assert.All(funcionario.Habilidades, habilidade => Assert.False(string.IsNullOrWhiteSpace(habilidade)));
         }
 
-        [Fact]
+        [Fact(DisplayName = "Habilidades que o junior deve possuir.")]
+        [Trait("Funcionário", "Testando os nomes e Teorias.")]
         public void Funcionario_Habilidades_JuniorDevePossuirHabilidadeBasica()
         {
             // Arrange & Act
@@ -25,7 +27,8 @@ namespace Demo.Tests
         }
 
 
-        [Fact]
+        [Fact(DisplayName = "Habilidades que o junior não deve possuir.")]
+        [Trait("Funcionário", "Testando os nomes e Teorias.")]
         public void Funcionario_Habilidades_JuniorNaoDevePossuirHabilidadeAvancada()
         {
             // Arrange & Act
@@ -35,7 +38,8 @@ namespace Demo.Tests
             Assert.DoesNotContain("Microservices", funcionario.Habilidades);
         }
 
-        [Fact]
+        [Fact(DisplayName = "Habilidades que o pleno deve possuir.")]
+        [Trait("Funcionário", "Testando os nomes e Teorias.")]
         public void Funcionario_Habilidades_PlenoDevePossuirHabilidades()
         {
             // Arrange & Act
@@ -53,7 +57,8 @@ namespace Demo.Tests
         }
 
 
-        [Fact]
+        [Fact(DisplayName = "Habilidades que o nível senior deve possuir.")]
+        [Trait("Funcionário", "Testando os nomes e Teorias.")]
         public void Funcionario_Habilidades_SeniorDevePossuirTodasHabilidades()
         {
             // Arrange & Act
