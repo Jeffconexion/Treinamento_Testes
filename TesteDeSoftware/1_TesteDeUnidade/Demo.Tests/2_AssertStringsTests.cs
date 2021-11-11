@@ -10,7 +10,8 @@ namespace Demo.Tests
     /// </summary>
     public class AssertStringsTests
     {
-        [Fact]
+        [Fact(DisplayName ="Retornar nome completo.")]
+        [Trait("Funcionário","Testando os nomes e Teorias.")]
         public void StringsTools_UnirNomes_RetornarNomeCompleto()
         {
             // Arrange
@@ -24,7 +25,8 @@ namespace Demo.Tests
         }
 
 
-        [Fact]
+        [Fact(DisplayName = "Retornar nome ignorando case.")]
+        [Trait("Funcionário", "Testando os nomes e Teorias.")]
         public void StringsTools_UnirNomes_DeveIgnorarCase()
         {
             // Arrange
@@ -38,7 +40,8 @@ namespace Demo.Tests
         }
 
 
-        [Fact]
+        [Fact(DisplayName = "Retornar nome com trecho específico.")]
+        [Trait("Funcionário", "Testando os nomes e Teorias.")]
         public void StringsTools_UnirNomes_DeveConterTrecho()
         {
             // Arrange
@@ -52,7 +55,8 @@ namespace Demo.Tests
         }
 
 
-        [Fact]
+        [Fact(DisplayName = "Retornar nome começando com trecho específico.")]
+        [Trait("Funcionário", "Testando os nomes e Teorias.")]
         public void StringsTools_UnirNomes_DeveComecarCom()
         {
             // Arrange
@@ -66,7 +70,8 @@ namespace Demo.Tests
         }
 
 
-        [Fact]
+        [Fact(DisplayName = "Retornar nome acabando com trecho específico.")]
+        [Trait("Funcionário", "Testando os nomes e Teorias.")]
         public void StringsTools_UnirNomes_DeveAcabarCom()
         {
             // Arrange
@@ -79,7 +84,8 @@ namespace Demo.Tests
             Assert.EndsWith("za", nomeCompleto);
         }
 
-        [Fact]
+        [Fact(DisplayName = "Validar expressão regular para os nomes.")]
+        [Trait("Funcionário", "Testando os nomes e Teorias.")]
         public void StringsTools_UnirNomes_ValidarExpressaoRegular()
         {
             // Arrange
@@ -92,7 +98,8 @@ namespace Demo.Tests
             Assert.Matches("[A-Z]{1}[a-z]+ [A-Z]{1}[a-z]+", nomeCompleto);
         }
 
-        [Theory]
+        [Theory(DisplayName = "Teoria - Validar expressão regular.")]
+        [Trait("Funcionário", "Testando os nomes e Teorias.")]
         [InlineData("Charlotte", "Valadares ", "Charlotte Valadares ")]
         [InlineData("Quelia", "Costa  ", "Quelia Costa  ")]
         [InlineData("Nadine", "Lage ", "Nadine Lage ")]
