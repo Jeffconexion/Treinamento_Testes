@@ -13,7 +13,8 @@ namespace Demo.Tests
         /// Eu tenho um Fato.
         /// O [Fact] atributo declara um método de teste que é executado pelo executor de teste.
         /// </summary>
-        [Fact]
+        [Fact(DisplayName ="Calcular valor soma.")]
+        [Trait("Calculadora", "Soma, Divisão e Teorias")]
         public void Calculadora_Somar_RetornarValorSoma()
         {
             // Arrange
@@ -35,7 +36,8 @@ namespace Demo.Tests
         /// <param name="v1">Primeiro Parâmetro</param>
         /// <param name="v2">Segundo Parâmetro</param>
         /// <param name="total">Valor total dos dois Parâmetros.</param>
-        [Theory]
+        [Theory(DisplayName = "Teoria - Calcular valor soma.")]
+        [Trait("Calculadora", "Soma, Divisão e Teorias")]
         [InlineData(1, 1, 2)]
         [InlineData(3, 7, 10)]
         [InlineData(5, 2, 7)]
@@ -54,7 +56,8 @@ namespace Demo.Tests
             Assert.Equal(total, reslutado);
         }
 
-        [Theory]
+        [Theory(DisplayName = "Teoria - Calcular valor divisão.")]
+        [Trait("Calculadora", "Soma, Divisão e Teorias")]
         [InlineData(4, 2, 2)]
         [InlineData(9, 3, 3)]
         [InlineData(12, 4, 3)]
