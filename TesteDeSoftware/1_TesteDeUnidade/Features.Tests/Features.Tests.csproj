@@ -29,7 +29,6 @@
     <Folder Include="1_Traits\" />
     <Folder Include="2_Fixtures\" />
     <Folder Include="3_Order\" />
-    <Folder Include="4_DadosHumanos\" />
     <Folder Include="5_Mock\" />
     <Folder Include="6_AutoMock\" />
     <Folder Include="7_FluentAssertions\" />
