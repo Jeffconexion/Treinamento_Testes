@@ -13,7 +13,7 @@ namespace Demo.Tests
         /// Eu tenho um Fato.
         /// O [Fact] atributo declara um método de teste que é executado pelo executor de teste.
         /// </summary>
-        [Fact(DisplayName ="Calcular valor soma.")]
+        [Fact(DisplayName = "Calcular valor soma.")]
         [Trait("Calculadora", "Soma, Divisão e Teorias")]
         public void Calculadora_Somar_RetornarValorSoma()
         {

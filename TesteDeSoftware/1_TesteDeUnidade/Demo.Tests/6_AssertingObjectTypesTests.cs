@@ -4,7 +4,7 @@ namespace Demo.Tests
 {
     public class AssertingObjectTypesTests
     {
-        [Fact(DisplayName ="Verificando se o novo objeto é do tipo funcionário.")]
+        [Fact(DisplayName = "Verificando se o novo objeto é do tipo funcionário.")]
         [Trait("Funcionário", "Testando os nomes e Teorias.")]
         public void FuncionarioFactory_Criar_DeveRetornarTipoFuncionario()
         {

@@ -7,8 +7,8 @@ namespace Demo.Tests
     /// </summary>
     public class AssertStringsTests
     {
-        [Fact(DisplayName ="Retornar nome completo.")]
-        [Trait("Funcionário","Testando os nomes e Teorias.")]
+        [Fact(DisplayName = "Retornar nome completo.")]
+        [Trait("Funcionário", "Testando os nomes e Teorias.")]
         public void StringsTools_UnirNomes_RetornarNomeCompleto()
         {
             // Arrange

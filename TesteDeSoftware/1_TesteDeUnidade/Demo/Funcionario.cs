@@ -18,14 +18,15 @@ namespace Demo
 
         public void DefinirSalario(double salario)
         {
-            if (salario < 500) throw new Exception("Salario inferior ao permitido");
+            if (salario < 500)
+                throw new Exception("Salario inferior ao permitido");
 
             Salario = salario;
             if (salario < 2000)
                 NivelProfissional = EnumNivelProfissional.Junior;
-            else if (salario >= 2000 && salario < 8000)
+            if (salario >= 2000 && salario <= 8000)
                 NivelProfissional = EnumNivelProfissional.Pleno;
-            else if (salario >= 8000)
+            if (salario > 8000)
                 NivelProfissional = EnumNivelProfissional.Senior;
         }
 

@@ -4,7 +4,7 @@ namespace Demo.Tests
 {
     public class AssertNumbersTests
     {
-        [Fact(DisplayName ="Soma deve ser igual ao valor esperado.")]
+        [Fact(DisplayName = "Soma deve ser igual ao valor esperado.")]
         [Trait("Calculadora", "Soma, Divisão e Teorias")]
         public void Calculadora_Somar_DeveSerIgual()
         {

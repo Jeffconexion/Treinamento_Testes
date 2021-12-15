@@ -10,13 +10,13 @@ namespace Features.Tests
         private readonly ClienteTestsAutoMockerFixture _clienteTestsFixture;
         readonly ITestOutputHelper _outputHelper;
 
-        public ClienteFluentAssertionsTests(ClienteTestsAutoMockerFixture clienteTestsFixture, 
+        public ClienteFluentAssertionsTests(ClienteTestsAutoMockerFixture clienteTestsFixture,
                                             ITestOutputHelper outputHelper)
         {
             _clienteTestsFixture = clienteTestsFixture;
             _outputHelper = outputHelper;
         }
-        
+
 
         [Fact(DisplayName = "Novo Cliente Válido")]
         [Trait("Categoria", "Cliente Fluent Assertion Testes")]
