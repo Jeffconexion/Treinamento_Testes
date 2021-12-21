@@ -1,4 +1,6 @@
 ﻿using Xunit;
+using FluentAssertions;
+
 
 /// <summary>
 /// Esses teste de Unidade estão sendo cobertos pelos teste de Mutante.
@@ -25,7 +27,11 @@ namespace Demo.Tests
 
             // Assert
             //Assert.True(resultado == 4);
+
             Assert.Equal(4, resultado);
+
+            //Utilizando fluentAssertions
+            resultado.Should().Be(4).And.BePositive();
         }
 
 
@@ -50,10 +56,13 @@ namespace Demo.Tests
             var calculadora = new Calculadora();
 
             //Act
-            var reslutado = calculadora.Somar(v1, v2);
+            var resultado = calculadora.Somar(v1, v2);
 
             //Assert
-            Assert.Equal(total, reslutado);
+            //Assert.Equal(total, resultado);
+
+            //Utilizando fluentAssertions
+            total.Should().Be(resultado);
         }
 
         [Theory(DisplayName = "Teoria - Calcular valor divisão.")]
@@ -75,6 +84,9 @@ namespace Demo.Tests
 
             //Assert
             Assert.Equal(resultadoEsperado, resultado);
+
+            //Utilizando fluentAssertions
+            resultadoEsperado.Should().Be(resultado).And.BePositive();
         }
     }
 }
