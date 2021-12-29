@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Demo.Tests
 {
@@ -15,7 +16,8 @@ namespace Demo.Tests
             var result = calculadora.Somar(1, 2);
 
             // Assert
-            Assert.Equal(3, result);
+            //Assert.Equal(3, result);
+            result.Should().Be(3);
         }
 
         [Fact(DisplayName = "Soma não deve ser igual ao valor esperado.")]
@@ -26,10 +28,11 @@ namespace Demo.Tests
             var calculadora = new Calculadora();
 
             // Act
-            var result = calculadora.Somar(1.13123123123, 2.2312313123);
+            var result = calculadora.Somar(1.1, 2.2);
 
             // Assert
-            Assert.NotEqual(3.3, result, 1);
+            //Assert.NotEqual(3.3, result, 1);
+            result.Should().NotBe(2);
         }
     }
 }

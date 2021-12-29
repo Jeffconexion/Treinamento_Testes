@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Demo.Tests
 {
@@ -12,7 +13,8 @@ namespace Demo.Tests
             var funcionario = FuncionarioFactory.Criar("Souza", 10000);
 
             // Assert
-            Assert.All(funcionario.Habilidades, habilidade => Assert.False(string.IsNullOrWhiteSpace(habilidade)));
+            //Assert.All(funcionario.Habilidades, habilidade => Assert.False(string.IsNullOrWhiteSpace(habilidade)));
+            funcionario.Habilidades.Should().NotBeNullOrEmpty();
         }
 
         [Fact(DisplayName = "Habilidades que o junior deve possuir.")]
@@ -23,7 +25,8 @@ namespace Demo.Tests
             var funcionario = FuncionarioFactory.Criar("Souza", 1000);
 
             // Assert
-            Assert.Contains("OOP", funcionario.Habilidades);
+            //Assert.Contains("OOP", funcionario.Habilidades);
+            funcionario.Habilidades.Should().Contain("OOP").And.Contain("Lógica de Programação");
         }
 
 
@@ -35,7 +38,10 @@ namespace Demo.Tests
             var funcionario = FuncionarioFactory.Criar("Souza", 1000);
 
             // Assert
-            Assert.DoesNotContain("Microservices", funcionario.Habilidades);
+            //Assert.DoesNotContain("Microservices", funcionario.Habilidades);
+
+            funcionario.Habilidades.Should().NotContain("Microservices").And.NotContain("Testes");
+
         }
 
         [Fact(DisplayName = "Habilidades que o pleno deve possuir.")]
@@ -53,7 +59,9 @@ namespace Demo.Tests
             };
 
             // Assert
-            Assert.Equal(habilidadesBasicas, funcionario.Habilidades);
+            //Assert.Equal(habilidadesBasicas, funcionario.Habilidades);
+
+            funcionario.Habilidades.Should().Equals(habilidadesBasicas);
         }
 
 
@@ -73,7 +81,10 @@ namespace Demo.Tests
             };
 
             // Assert
-            Assert.Equal(habilidadesBasicas, funcionario.Habilidades);
+            //Assert.Equal(habilidadesBasicas, funcionario.Habilidades);
+
+            funcionario.Habilidades.Should().Equals(habilidadesBasicas);
+
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Demo.Tests
 {
@@ -19,7 +20,7 @@ namespace Demo.Tests
         public void Funcionario_Salario_FaixasSalariaisDevemRespeitarNivelProfissional(double salario)
         {
             // Arrange & Act
-            var funcionario = new Funcionario("Eduardo", salario);
+            var funcionario = new Funcionario("Carlos", salario);
 
             // Assert
             if (funcionario.NivelProfissional == EnumNivelProfissional.Junior)
@@ -31,7 +32,8 @@ namespace Demo.Tests
             if (funcionario.NivelProfissional == EnumNivelProfissional.Senior)
                 Assert.InRange(funcionario.Salario, 8001, double.MaxValue);
 
-            Assert.NotInRange(funcionario.Salario, 0, 499);
+            //Assert.NotInRange(funcionario.Salario, 0, 499);
+            funcionario.Salario.Should().NotBeInRange(0, 499);
         }
     }
 }

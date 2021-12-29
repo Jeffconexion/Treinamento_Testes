@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FluentAssertions;
+using System;
 using Xunit;
 
 namespace Demo.Tests
@@ -13,7 +14,14 @@ namespace Demo.Tests
             var calculadora = new Calculadora();
 
             // Act & Assert
-            Assert.Throws<DivideByZeroException>(() => calculadora.Dividir(10, 0));
+            //Assert.Throws<DivideByZeroException>(() => calculadora.Dividir(10, 0));
+
+            Action calculadoraAct = () => calculadora.Dividir(10, 0);
+
+            calculadoraAct.Should().Throw<DivideByZeroException>()
+                                    .WithMessage("Attempted to divide by zero.");
+
+
         }
 
 
@@ -26,6 +34,8 @@ namespace Demo.Tests
                 Assert.Throws<Exception>(() => FuncionarioFactory.Criar("Souza", 250));
 
             Assert.Equal("Salario inferior ao permitido", exception.Message);
+
+            exception.Should().Equals("Salario inferior ao permitido");
         }
     }
 }

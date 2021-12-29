@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Demo.Tests
 {
@@ -12,7 +13,9 @@ namespace Demo.Tests
             var funcionario = new Funcionario("", 1000);
 
             // Assert
-            Assert.False(string.IsNullOrEmpty(funcionario.Nome));
+            //Assert.False(string.IsNullOrEmpty(funcionario.Nome));
+            funcionario.Nome.Should().NotBeNullOrEmpty();
+
         }
 
         [Fact(DisplayName = "Verificar se apelido está com valor nullo.")]
@@ -20,14 +23,17 @@ namespace Demo.Tests
         public void Funcionario_Apelido_NaoDeveTerApelido()
         {
             // Arrange & Act
-            var funcionario = new Funcionario("Eduardo", 1000);
+            var funcionario = new Funcionario("Carlos", 1000);
 
             // Assert
-            Assert.Null(funcionario.Apelido);
+            //Assert.Null(funcionario.Apelido);
 
             // Assert Bool
-            Assert.True(string.IsNullOrEmpty(funcionario.Apelido));
-            Assert.False(funcionario.Apelido?.Length > 0);
+            //Assert.True(string.IsNullOrEmpty(funcionario.Apelido));
+            //Assert.False(funcionario.Apelido?.Length > 0);
+
+            funcionario.Apelido.Should().BeNullOrWhiteSpace();
+
         }
     }
 }

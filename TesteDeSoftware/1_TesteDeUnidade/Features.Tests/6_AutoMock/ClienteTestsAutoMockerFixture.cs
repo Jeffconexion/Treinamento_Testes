@@ -38,7 +38,7 @@ namespace Features.Tests
         {
             var genero = new Faker().PickRandom<Name.Gender>();
 
-            //var email = new Faker().Internet.Email("eduardo","pires","gmail");
+            //var email = new Faker().Internet.Email("Carlos","Souza","gmail");
             //var clientefaker = new Faker<Cliente>();
             //clientefaker.RuleFor(c => c.Nome, (f, c) => f.Name.FirstName());
 

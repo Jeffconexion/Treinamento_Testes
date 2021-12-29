@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Demo.Tests
 {
@@ -12,7 +13,8 @@ namespace Demo.Tests
             var funcionario = FuncionarioFactory.Criar("Souza", 10000);
 
             // Assert
-            Assert.IsType<Funcionario>(funcionario);
+            //Assert.IsType<Funcionario>(funcionario);
+            funcionario.Should().BeOfType<Funcionario>();
         }
 
         [Fact(DisplayName = "Verificando se o novo objeto é filho de funcionário.")]
@@ -23,7 +25,9 @@ namespace Demo.Tests
             var funcionario = FuncionarioFactory.Criar("Souza", 10000);
 
             // Assert
-            Assert.IsAssignableFrom<Pessoa>(funcionario);
+            //Assert.IsAssignableFrom<Pessoa>(funcionario);
+
+            funcionario.Should().BeAssignableTo<Pessoa>();
         }
     }
 }

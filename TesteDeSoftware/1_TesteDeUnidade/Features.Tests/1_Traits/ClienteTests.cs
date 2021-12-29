@@ -13,8 +13,8 @@ namespace Features.Tests
             // Arrange
             var cliente = new Cliente(
                 Guid.NewGuid(),
-                "Eduardo",
-                "Pires",
+                "Carlos",
+                "Souza",
                 DateTime.Now.AddYears(-30),
                 "edu@edu.com",
                 true,
