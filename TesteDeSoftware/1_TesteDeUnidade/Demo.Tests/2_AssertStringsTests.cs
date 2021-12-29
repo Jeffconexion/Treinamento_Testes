@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Demo.Tests
 {
@@ -18,7 +19,8 @@ namespace Demo.Tests
             var nomeCompleto = sut.Unir("Carlos", "Souza");
 
             // Assert
-            Assert.Equal("Carlos Souza", nomeCompleto);
+            //Assert.Equal("Carlos Souza", nomeCompleto);
+            nomeCompleto.Should().Contain("Carlos Souza");
         }
 
 
@@ -33,7 +35,8 @@ namespace Demo.Tests
             var nomeCompleto = sut.Unir("carlos", "souza");
 
             // Assert
-            Assert.Equal("CARLOS SOUZA", nomeCompleto, true);
+           //Assert.Equal("CARLOS SOUZA", nomeCompleto, true);
+           nomeCompleto.Should().NotBeUpperCased();
         }
 
 
@@ -48,7 +51,8 @@ namespace Demo.Tests
             var nomeCompleto = sut.Unir("Carlos", "Souza");
 
             // Assert
-            Assert.Contains("rlo", nomeCompleto);
+            //Assert.Contains("rlo", nomeCompleto);
+            nomeCompleto.Should().ContainAll("rlo");
         }
 
 
@@ -63,7 +67,8 @@ namespace Demo.Tests
             var nomeCompleto = sut.Unir("Carlos", "Souza");
 
             // Assert
-            Assert.StartsWith("Car", nomeCompleto);
+            //Assert.StartsWith("Car", nomeCompleto);
+            nomeCompleto.Should().StartWith("Car");
         }
 
 
@@ -78,7 +83,8 @@ namespace Demo.Tests
             var nomeCompleto = sut.Unir("Carlos", "Souza");
 
             // Assert
-            Assert.EndsWith("za", nomeCompleto);
+            //Assert.EndsWith("za", nomeCompleto);
+            nomeCompleto.Should().EndWith("za");
         }
 
         [Fact(DisplayName = "Validar expressão regular para os nomes.")]
@@ -110,8 +116,6 @@ namespace Demo.Tests
 
             //Assert
             Assert.Matches("[A-Z]{1}[a-z]+ [A-Z]{1}[a-z]+", resultadoNomeCompleto);
-            Assert.Equal(resultado, resultadoNomeCompleto);
-
         }
     }
 }
