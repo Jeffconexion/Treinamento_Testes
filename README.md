@@ -15,6 +15,12 @@
 * Testes Automatizados.
 * Testes de Carga.
 
+### Livros ###
+
+* The Art of Unit Testing: With Examples in C#, Roy Osherove.
+* Test Driven Development: By Example, Kent Beck.
+* Test-Driven Development: Teste e Design no Mundo Real com .NET, Casa do Código.
+
 <!--
 ### Projeto ###
 
@@ -26,12 +32,9 @@ foi empregado boas práticas de documentação utilizando Swagger.
 <p align="center">
   <img src="https://github.com/Jeffconexion/App_ApisDataDriver/blob/main/webApi.gif" />
 </p>
-
-### Livros ###
-
-* The Art of Unit Testing: With Examples in C#, Roy Osherove.
-* Test Driven Development: By Example, Kent Beck.
-* Test-Driven Development: Teste e Design no Mundo Real com .NET, Casa do Código.
-
-
 -->
+
+
+
+
+
