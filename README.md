@@ -15,6 +15,11 @@
 * Testes Automatizados.
 * Testes de Carga.
 
+### Ferramentas extras ###
+
+* Teste de Mutante para validar os testes de unidade: https://stryker-mutator.io/docs/stryker-net/getting-started/
+* Geração de relatório para cobertura de código: manage extensions Run Ckoverlet Report e o ReportGenerator(https://github.com/danielpalme/ReportGenerator)
+
 ### Livros ###
 
 * The Art of Unit Testing: With Examples in C#, Roy Osherove.
