@@ -9,11 +9,7 @@
 
 * A Importância de Testar.
 * Testes de Unidade e Teste de Mutante.
-* TDD.
-* Teste de Integração.
-* BDD.
-* Testes Automatizados.
-* Testes de Carga.
+
 
 ### Ferramentas extras ###
 
