@@ -3,12 +3,12 @@ using Microsoft.AspNetCore.Mvc.Testing;
 
 namespace NerdStore.WebApp.Tests.Config
 {
-    public class LojaAppFactory<TStartup> : WebApplicationFactory<TStartup> where TStartup : class
+  public class LojaAppFactory<TStartup> : WebApplicationFactory<TStartup> where TStartup : class
+  {
+    protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
-        protected override void ConfigureWebHost(IWebHostBuilder builder)
-        {
-            builder.UseStartup<TStartup>();
-            builder.UseEnvironment("Testing");
-        }
+      builder.UseStartup<TStartup>();
+      builder.UseEnvironment("Testing");
     }
+  }
 }

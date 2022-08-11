@@ -10,56 +10,56 @@ using Xunit;
 
 namespace NerdStore.WebApp.Tests
 {
-    [Collection(nameof(IntegrationWebTestsFixtureCollection))]
-    public class PedidoWebTests
+  [Collection(nameof(IntegrationWebTestsFixtureCollection))]
+  public class PedidoWebTests
+  {
+    private readonly IntegrationTestsFixture<StartupWebTests> _testsFixture;
+
+    public PedidoWebTests(IntegrationTestsFixture<StartupWebTests> testsFixture)
     {
-        private readonly IntegrationTestsFixture<StartupWebTests> _testsFixture;
+      _testsFixture = testsFixture;
+    }
 
-        public PedidoWebTests(IntegrationTestsFixture<StartupWebTests> testsFixture)
-        {
-            _testsFixture = testsFixture;
-        }
+    [Fact(DisplayName = "Adicionar item em novo pedido")]
+    [Trait("Categoria", "Integração Web - Pedido")]
+    public async Task AdicionarItem_NovoPedido_DeveAtualizarValorTotal() 
+    {
+      // Arrange
+      var produtoId = new Guid("191ddd3e-acd4-4c3b-ae74-8e473993c5da");
+      const int quantidade = 2;
 
-        [Fact(DisplayName = "Adicionar item em novo pedido")]
-        [Trait("Categoria", "Integração Web - Pedido")]
-        public async Task AdicionarItem_NovoPedido_DeveAtualizarValorTotal()
-        {
-            // Arrange
-            var produtoId = new Guid("191ddd3e-acd4-4c3b-ae74-8e473993c5da");
-            const int quantidade = 2;
+      var initialResponse = await _testsFixture.Client.GetAsync($"/produto-detalhe/{produtoId}");
+      initialResponse.EnsureSuccessStatusCode();
 
-            var initialResponse = await _testsFixture.Client.GetAsync($"/produto-detalhe/{produtoId}");
-            initialResponse.EnsureSuccessStatusCode();
-
-            var formData = new Dictionary<string, string>
+      var formData = new Dictionary<string, string>
             {
                 {"Id", produtoId.ToString()},
                 {"quantidade", quantidade.ToString()}
             };
 
-            await _testsFixture.RealizarLoginWeb();
+      await _testsFixture.RealizarLoginWeb();
 
-            var postRequest = new HttpRequestMessage(HttpMethod.Post, "/meu-carrinho")
-            {
-                Content = new FormUrlEncodedContent(formData)
-            };
+      var postRequest = new HttpRequestMessage(HttpMethod.Post, "/meu-carrinho")
+      {
+        Content = new FormUrlEncodedContent(formData)
+      };
 
-            // Act
-            var postResponse = await _testsFixture.Client.SendAsync(postRequest);
+      // Act
+      var postResponse = await _testsFixture.Client.SendAsync(postRequest);
 
-            // Assert
-            postResponse.EnsureSuccessStatusCode();
+      // Assert
+      postResponse.EnsureSuccessStatusCode();
 
-            var html = new HtmlParser()
-                .ParseDocumentAsync(await postResponse.Content.ReadAsStringAsync())
-                .Result
-                .All;
+      var html = new HtmlParser()
+          .ParseDocumentAsync(await postResponse.Content.ReadAsStringAsync())
+          .Result
+          .All;
 
-            var formQuantidade = html?.FirstOrDefault(c => c.Id == "quantidade")?.GetAttribute("value")?.ApenasNumeros();
-            var valorUnitario = html?.FirstOrDefault(c => c.Id == "valorUnitario")?.TextContent.Split(".")[0]?.ApenasNumeros();
-            var valorTotal = html?.FirstOrDefault(c => c.Id == "valorTotal")?.TextContent.Split(".")[0]?.ApenasNumeros();
+      var formQuantidade = html?.FirstOrDefault(c => c.Id == "quantidade")?.GetAttribute("value")?.ApenasNumeros();
+      var valorUnitario = html?.FirstOrDefault(c => c.Id == "valorUnitario")?.TextContent.Split(".")[0]?.ApenasNumeros();
+      var valorTotal = html?.FirstOrDefault(c => c.Id == "valorTotal")?.TextContent.Split(".")[0]?.ApenasNumeros();
 
-            Assert.Equal(valorTotal, valorUnitario * formQuantidade);
-        }
+      Assert.Equal(valorTotal, valorUnitario * formQuantidade);
     }
+  }
 }
